@@ -24,16 +24,13 @@
 //                newsCongtainer.append('<li><a href="' + article.link + '" target="main">' + article.title + '</a><div class="test" style="text-overflow: ellipsis; -o-text-overflow: ellipsis; -icab-text-overflow: ellipsis; -khtml-text-overflow: ellipsis; -moz-text-overflow: ellipsis; -webkit-text-overflow: ellipsis; ">' + article.description + '</div></li>');
             });
         });
-        $.getJSON("https://gdata.youtube.com/feeds/api/videos", {
-            alt:"json",
-            v:2,
-            q:keyWord,
-            key:"AI39si50HFDj6PhWMC49jM0c0DddZT6gxJt9s_EFenTU7U_19QxWmTbzMpUWz_uTF2spz-SALe-1pGiOL7Bv4bhm0YFd0Fuvsw",
-            "max-results":10
+        $.getJSON("http://search.twitter.com/search.json?callback=?", {
+            count:10,
+            q:keyWord
         }, function (data) {
-            var videosCongtainer = $("#videos");
-            $.each(data.feed.entry, function (index, video) {
-                videosCongtainer.append('<li><a href="' + video.link[0].href + '" target="main">' + video.title.$t + '</a></li>');
+            var twitterCongtainer = $("#twitter");
+            $.each(data.results, function (index, twitter) {
+                twitterCongtainer.append('<li>'+ twitter.text + '</li>');
             });
         });
         var app = app || {};
@@ -61,8 +58,8 @@
                                 <div id='mainframe_bar' style='background: #fff; padding: 5px 5px 5px 5px; position: fixed; top: 5px; left: 81%; width: 18%; height: 98%; z-index: 999; box-shadow:2px 2px 5px #D39191'>\
                                     <div id='mainframe_close' style=''>\
                                         <p><a href=\"#\">Close</a></p>\
-                                    </div><div><div><div>News</div><ul id=\"news\"></ul></div><div><div>Videos</div>\
-                                    <ul id=\"videos\"></ul></div><div><div>Behance</div><ul id=\"Behance\"></ul></div></div></div>\
+                                    </div><div><div><div>News</div><ul id=\"news\"></ul></div><div><div>Twitter</div>\
+                                    <ul id=\"twitter\"></ul></div><div><div>Behance</div><ul id=\"Behance\"></ul></div></div></div>\
                                 </div>\
                                 <div id='mainframe'>\
                                         <iframe src='" + loc + "' onload=\"$('#mainframe iframe').slideDown(500);\" name='main'>Enable iFrames.</iframe>\
