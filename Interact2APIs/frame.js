@@ -57,19 +57,20 @@
             if ($("#mainframe").length == 0) {
 
                 $("body").append("\
-								<div id='overlay' style='background:#161616;position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:50;opacity:.7;'></div> \
-                                <div id='mainframe_bar' style='background: #fff; padding: 5px 5px 5px 5px; position: fixed; top: 5px; left: 81%; width: 18%; height: 98%; z-index: 999; box-shadow:2px 2px 5px #D39191'>\
-                                    <div id='mainframe_close' style=''>\
-                                        <p><a href=\"#\">Close</a></p>\
-                                    </div><div><div><div>News</div><ul id=\"news\"></ul></div><div><div>Videos</div>\
+								<div id='overlay' style='background:#fff;position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:50;opacity:.7;'></div> \
+                                <div id='mainframe_bar' style='background: #fff; padding: 10px 5px 10px 5px; position: fixed; top: 0px; right: 0%; width: 18%; height: 100%; z-index: 999; box-shadow:-5px 0px 5px purple; -moz-box-shadow:-5px 2px 5px purple;'>\
+                                    <div><div><div>News</div><ul id=\"news\"></ul></div><div><div>Videos</div>\
                                     <ul id=\"videos\"></ul></div><div><div>Behance</div><ul id=\"Behance\"></ul></div></div></div>\
                                 </div>\
                                 <div id='mainframe'>\
+									<div id='mainframe_close' style=''>\
+                                        <p><a href=\"#\">X</a></p>\
+                                    </div>\
                                         <iframe src='" + loc + "' onload=\"$('#mainframe iframe').slideDown(500);\" name='main'>Enable iFrames.</iframe>\
                                         <style type='text/css'>\
-                                                #mainframe_close { background: #fff; display: none; position: fixed; width: 50px; height: 20px; top: 0; left: 0; background-color: rgba(255,255,255,.25); cursor: pointer; z-index: 1000; }\
-                                                #mainframe_close p { background: red; color: black; font: normal normal bold 20px/20px Helvetica, sans-serif; position: absolute; top: 0%; right: 0%;  text-align: center; }\
-                                                #mainframe iframe { background: #fff; display: none; position: fixed; top: 0%; left: 0%; width: 80%; height: 100%; z-index: 999;}\\n\
+                                                #mainframe_close { background: #fff; display: none; position: fixed; right: 20%; height: 20px; top: -20px; cursor: pointer; z-index: 1000; }\
+                                                #mainframe_close p { background: #ddd; color: black; font: normal normal bold 20px/20px Helvetica, sans-serif; text-align: center; }\
+                                                #mainframe iframe { background: #fff; display: none; position: fixed; top: 0px; left: 0px; width: 80%; height: 100%; overflow-y:auto; z-index: 999; box-shadow:3px 0px 10px purple;-moz-box-shadow:2px 0px 5px purple;}\\n\
                                         </style>\
                                 </div>");
                 $("#mainframe_close").fadeIn(750);
