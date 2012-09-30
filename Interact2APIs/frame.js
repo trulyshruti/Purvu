@@ -58,7 +58,8 @@
             if ($("#mainframe").length == 0) {
 
                 $("body").append("\
-                                <div id='mainframe_bar' style='background: #fff;  position: absolute; top: 0%; left: 80%; width: 20%; height: 100%; z-index: 999; border: 10px solid rgba(0,0,0,.5);'>\
+								<div id='overlay' style='background:#aaa;position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:50;opacity:.5;'></div> \
+                                <div id='mainframe_bar' style='background: #fff;  position: fixed; top: 0%; left: 80%; width: 20%; height: 100%; z-index: 999; border: 10px solid rgba(0,0,0,.5);'>\
                                     <div id='mainframe_close' style=''>\
                                         <p><a href=\"#\">Close</a></p>\
                                     </div><div><div><div>News</div><ul id=\"news\"></ul></div><div><div>Videos</div>\
@@ -74,12 +75,14 @@
                                 </div>");
                 $("#mainframe_close").fadeIn(750);
             } else {
+				$("#overlay").fadeOut(500);
                 $("#mainframe_close").fadeOut(750);
                 $("#mainframe iframe").slideUp(500);
                 $("#mainframe_bar iframe").slideUp(500);
                 setTimeout("$('#mainframe').remove()", 750);
             }
             $("#mainframe_close").click(function (event) {
+				$("#overlay").fadeOut(500);
                 $("#mainframe_close").fadeOut(750);
                 $("#mainframe iframe").slideUp(500);
                 $("#mainframe_bar iframe").slideUp(500);
