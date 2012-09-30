@@ -8,10 +8,7 @@
     }
 
     function jsonReceive(data) {
-        console.log(data);
-//            $("#mainframe_bar").html(data);
         var keyWord = data.keywords.join(" ");
-//        var keyWord = data.keywords[0];
         $.getJSON("http://api.newscred.com/stories", {
             cluster_size:10,
             access_key:"c4bcc3f7c9bf9ec159f51da0a86ca658",
@@ -21,7 +18,7 @@
             var newsCongtainer = $("#news");
             $.each(data.story_set, function (index, story) {
                 var article = story.article_set[0];
-                newsCongtainer.append('<li><a href="' + article.link + '">' + article.title + '</a><div class="test" style="text-overflow: ellipsis; -o-text-overflow: ellipsis; -icab-text-overflow: ellipsis; -khtml-text-overflow: ellipsis; -moz-text-overflow: ellipsis; -webkit-text-overflow: ellipsis; ">' + article.description + '</div></li>');
+                newsCongtainer.append('<li><a href="' + article.link + '" target="main">' + article.title + '</a><div class="test" style="text-overflow: ellipsis; -o-text-overflow: ellipsis; -icab-text-overflow: ellipsis; -khtml-text-overflow: ellipsis; -moz-text-overflow: ellipsis; -webkit-text-overflow: ellipsis; ">' + article.description + '</div></li>');
             });
         });
         $.getJSON("https://gdata.youtube.com/feeds/api/videos", {
@@ -33,7 +30,7 @@
         }, function (data) {
             var videosCongtainer = $("#videos");
             $.each(data.feed.entry, function (index, video) {
-                videosCongtainer.append('<li><a href="' + video.link[0].href + '">' + video.title.$t + '</a></li>');
+                videosCongtainer.append('<li><a href="' + video.link[0].href + '" target="main">' + video.title.$t + '</a></li>');
             });
         });
         var app = app || {};
@@ -45,7 +42,7 @@
             success:function (model, resp) {
                 var behanceCongtainer = $("#Behance");
                 $.each(resp.projects, function (index, project) {
-                    behanceCongtainer.append('<li><a href="' + project.url + '">' + project.name + '</a></li>');
+                    behanceCongtainer.append('<li><a href="' + project.url + '" target="main">' + project.name + '</a></li>');
                 });
             }
         });
@@ -64,7 +61,7 @@
                                     <ul id=\"videos\"></ul></div><div><div>Behance</div><ul id=\"Behance\"></ul></div></div></div>\
                                 </div>\
                                 <div id='mainframe'>\
-                                        <iframe src='" + loc + "' onload=\"$('#mainframe iframe').slideDown(500);\">Enable iFrames.</iframe>\
+                                        <iframe src='" + loc + "' onload=\"$('#mainframe iframe').slideDown(500);\" name='main'>Enable iFrames.</iframe>\
                                         <style type='text/css'>\
                                                 #mainframe_close { background: #fff; display: none; position: fixed; width: 50px; height: 20px; top: 0; left: 0; background-color: rgba(255,255,255,.25); cursor: pointer; z-index: 1000; }\
                                                 #mainframe_close p { background: red; color: black; font: normal normal bold 20px/20px Helvetica, sans-serif; position: absolute; top: 0%; right: 0%;  text-align: center; }\
