@@ -61,10 +61,10 @@
                                     </div><div><div><div>News</div><ul id=\"news\"></ul></div><div><div>Twitter</div>\
                                     <ul id=\"twitter\"></ul></div><div><div>Behance</div><ul id=\"Behance\"></ul></div></div></div>\
                                 </div>\
-                                <div id='mainframe'>\
-									<div id='mainframe_close' style=''>\
+								<div id='mainframe_close' style=''>\
                                         <p><a href=\"#\">X</a></p>\
                                     </div>\
+                                <div id='mainframe'>\
                                         <iframe src='" + loc + "' onload=\"$('#mainframe iframe').slideDown(500);\" name='main'>Enable iFrames.</iframe>\
                                         <style type='text/css'>\
                                                 #mainframe_close { background: #fff; display: none; position: fixed; right: 20%; height: 20px; top: -20px; cursor: pointer; z-index: 1000; }\
