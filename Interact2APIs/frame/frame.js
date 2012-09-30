@@ -18,26 +18,22 @@
 	} else {
 		initMyBookmarklet();
 	}
-        
-        function requestData(){
-            $.getJSON('http://localhost:8888/service.php', jsonReceive);
-        }
-        
-        function jsonReceive(data){
-            $("#mainframe_bar").html(data);
-        }
-        
+	
 	function initMyBookmarklet() {
 		(window.myBookmarklet = function() {
 			var loc = window.location;
+                        alert(loc);
 			if ($("#mainframe").length == 0) {
 
                                 $("body").append("\
-                                <div id='mainframe_bar' style='background: #fff;  position: fixed; top: 0%; left: 80%; width: 20%; height: 100%; z-index: 999; border: 10px solid rgba(0,0,0,.5);'>\
-                                    <div id='mainframe_close' style=''>\
-                                        <p><a href=\"#\">Close</a></p>\
-                                    </div>\
-                                </div>\
+                                    <div id='mainframe_bar'>\
+                                        <iframe src='http://localhost:8888/bar.html' onload=\"$('#mainframe_bar iframe').slideDown(500);\">Enable iFrames.</iframe>\
+                                        <style type='text/css'>\
+                                        #mainframe_bar iframe { background: #fff; display: none; position: fixed; top: 0%; left: 80%; width: 20%; height: 100%; z-index: 999; border: 10px solid rgba(0,0,0,.5); }\
+                                        </style>\
+                                        <div id='mainframe_close' style=''>\
+                                                <p><a href=\"#\">Close</a></p>\
+                                        </div>\
                                 </div>\
                                 <div id='mainframe'>\
                                         <iframe src='"+loc+"' onload=\"$('#mainframe iframe').slideDown(500);\">Enable iFrames.</iframe>\
