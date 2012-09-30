@@ -1,0 +1,30 @@
+/*
+* { margin: 0; padding: 0; }
+html { overflow-y: scroll; }
+body { font: 62.5% Helvetica, sans-serif; }
+ul { list-style: none inside; }
+p { font: 1.3em/1.3em; margin-bottom: 1.3em; }
+a { outline: none; }
+a img { border: none; }
+*/
+
+div.test {
+	white-space: nowrap;
+	width: 40em;
+	height: 2em;
+	overflow: hidden;
+	border: 1px solid #000;
+	background-color: #fff;
+}
+
+/*
+.floatleft { float: left; }
+.floatright { float: right; }
+.clear { clear: both; }
+.transpBlack { background: url(transpBlack.png); }
+
+#page-wrap {
+	width: 775px;
+	margin: 0 auto;
+}
+*/
