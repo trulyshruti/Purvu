@@ -55,7 +55,7 @@
 
                 $("body").append("\
 								<div id='overlay' style='background:#161616;position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:50;opacity:.7;'></div> \
-                                <div id='mainframe_bar' style='background: #fff; padding: 10px 5px 10px 5px; position: fixed; top: 0px; right: 0%; width: 18%; height: 100%; z-index: 999; box-shadow:-5px 0px 5px purple; -moz-box-shadow:-5px 2px 5px purple;'>\
+                                <div id='mainframe_bar' style='background: #383834; color:whitesmoke; padding: 10px 5px 10px 5px; position: fixed; top: 0px; right: -1px; width: 18%; height: 100%; z-index: 999;'>\
 								<div><div><div>News</div><ul id=\"news\"></ul></div>\
 									<div><div>Twitter</div>\
                                     <ul id=\"twitter\"></ul></div> \
@@ -69,7 +69,7 @@
                                         <style type='text/css'>\
                                                 #mainframe_close { background: #fff; display: none; position: fixed; right: 20%; height: 20px; top: -20px; cursor: pointer; z-index: 1000; }\
                                                 #mainframe_close p { background: #ddd; color: black; font: normal normal bold 20px/20px Helvetica, sans-serif; text-align: center; }\
-                                                #mainframe iframe { background: #fff; display: none; position: fixed; top: 0px; left: 0px; width: 80%; height: 100%; overflow-y:auto; z-index: 999; box-shadow:3px 0px 10px purple;-moz-box-shadow:2px 0px 5px purple;}\\n\
+                                                #mainframe iframe { background: #fff; display: none; position: fixed; top: 0px; left: 0px; width: 81%; height: 100%; overflow-y:auto; z-index: 999; box-shadow:2px 0px 5px black;-moz-box-shadow:2px 0px 5px black;}\\n\
                                         </style>\
                                 </div>");
                 $("#mainframe_close").fadeIn(750);
@@ -79,6 +79,9 @@
                 $("#mainframe iframe").slideUp(500);
                 $("#mainframe_bar iframe").slideUp(500);
                 setTimeout("$('#mainframe').remove()", 750);
+				setTimeout("$('#mainframe_bar').remove()", 750);
+				setTimeout("$('#overlay').remove()", 750);
+				setTimeout("$('#mainframe_close').remove()", 750);
             }
             $("#mainframe_close").click(function (event) {
 				$("#overlay").fadeOut(500);
@@ -87,6 +90,8 @@
                 $("#mainframe_bar iframe").slideUp(500);
                 setTimeout("$('#mainframe').remove()", 750);
                 setTimeout("$('#mainframe_bar').remove()", 750);
+				setTimeout("$('#overlay').remove()", 750);
+				setTimeout("$('#mainframe_close').remove()", 750);
             });
         })();
     }
