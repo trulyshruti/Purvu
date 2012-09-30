@@ -20,7 +20,9 @@
             var newsCongtainer = $("#news");
             $.each(data.story_set, function (index, story) {
                 var article = story.article_set[0];
-                newsCongtainer.append('<li><a href="' + article.link + '" target="main">' + article.title + '</a><div class="test" style="text-overflow: ellipsis; -o-text-overflow: ellipsis; -icab-text-overflow: ellipsis; -khtml-text-overflow: ellipsis; -moz-text-overflow: ellipsis; -webkit-text-overflow: ellipsis; ">' + article.description + '</div></li>');
+                console.log(article);
+                newsCongtainer.append('<li class="ui-btn ui-btn-icon-right ui-li ui-li-has-alt ui-li-has-thumb ui-btn-up-c"><div class="ui-btn-inner ui-li ui-li-has-alt"><div class="ui-btn-text"><a href="' + article.link + '" class="ui-link-inherit"><h3 class="ui-li-heading">' + article.title + '</h3><div class="ui-li-desc">' + article.description + '</div></a></div></div></li>');
+//                newsCongtainer.append('<li><a href="' + article.link + '" target="main">' + article.title + '</a><div class="test" style="text-overflow: ellipsis; -o-text-overflow: ellipsis; -icab-text-overflow: ellipsis; -khtml-text-overflow: ellipsis; -moz-text-overflow: ellipsis; -webkit-text-overflow: ellipsis; ">' + article.description + '</div></li>');
             });
         });
         $.getJSON("https://gdata.youtube.com/feeds/api/videos", {
@@ -56,7 +58,7 @@
             if ($("#mainframe").length == 0) {
 
                 $("body").append("\
-                                <div id='mainframe_bar' style='background: #fff;  position: fixed; top: 0%; left: 80%; width: 20%; height: 100%; z-index: 999; border: 10px solid rgba(0,0,0,.5);'>\
+                                <div id='mainframe_bar' style='background: #fff;  position: absolute; top: 0%; left: 80%; width: 20%; height: 100%; z-index: 999; border: 10px solid rgba(0,0,0,.5);'>\
                                     <div id='mainframe_close' style=''>\
                                         <p><a href=\"#\">Close</a></p>\
                                     </div><div><div><div>News</div><ul id=\"news\"></ul></div><div><div>Videos</div>\
