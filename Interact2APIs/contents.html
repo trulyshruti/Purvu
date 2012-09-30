@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+        div.test {
+            white-space: nowrap;
+            width: 40em;
+            height: 2em;
+            overflow: hidden;
+            border: 1px solid #000;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div>
+        <div>News</div>
+        <ul id="news"></ul>
+    </div>
+    <div>
+        <div>Videos</div>
+        <ul id="videos"></ul>
+    </div>
+    <div>
+        <div>Behance</div>
+        <ul id="Behance"></ul>
+    </div>
+</div>
+<script type="text/javascript" src="network_api_backbone/libs/jquery.js"></script>
+<script type="text/javascript" src="network_api_backbone/libs/underscore.js"></script>
+<script type="text/javascript" src="network_api_backbone/libs/backbone.js"></script>
+<script type="text/javascript" src="network_api_backbone/be.js"></script>
+
+<script type="text/javascript" src="network_api_backbone/be/users/projects.js"></script>
+<script type="text/javascript" src="network_api_backbone/be/users/wips.js"></script>
+<script type="text/javascript" src="network_api_backbone/be/users/collections.js"></script>
+<script type="text/javascript" src="network_api_backbone/be/users.js"></script>
+
+<script type="text/javascript" src="network_api_backbone/be/collections.js"></script>
+
+<script type="text/javascript" src="network_api_backbone/be/projects/comments.js"></script>
+<script type="text/javascript" src="network_api_backbone/be/projects.js"></script>
+
+<script type="text/javascript" src="network_api_backbone/be/wips/revisions.js"></script>
+<script type="text/javascript" src="network_api_backbone/be/wips.js"></script>
+
+<script type="text/javascript" src="network_api_backbone/be/search.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $.getJSON("http://api.newscred.com/stories", {
+            cluster_size:10,
+            access_key:"c4bcc3f7c9bf9ec159f51da0a86ca658",
+            query:"Barack Obama",
+            format:"json"
+        }, function (data) {
+            var newsCongtainer = $("#news");
+            $.each(data.story_set, function (index, story) {
+                var article = story.article_set[0];
+                newsCongtainer.append('<li><a href="' + article.link + '">' + article.title + '</a><div class="test" style="text-overflow: ellipsis; -o-text-overflow: ellipsis; -icab-text-overflow: ellipsis; -khtml-text-overflow: ellipsis; -moz-text-overflow: ellipsis; -webkit-text-overflow: ellipsis; ">' + article.description + '</div></li>');
+            });
+        });
+        $.getJSON("https://gdata.youtube.com/feeds/api/videos", {
+            alt:"json",
+            v:2,
+            q:"Barack Obama",
+            key:"AI39si50HFDj6PhWMC49jM0c0DddZT6gxJt9s_EFenTU7U_19QxWmTbzMpUWz_uTF2spz-SALe-1pGiOL7Bv4bhm0YFd0Fuvsw",
+            "max-results":10
+        }, function (data) {
+            var videosCongtainer = $("#videos");
+            $.each(data.feed.entry, function (index, video) {
+                videosCongtainer.append('<li><a href="' + video.link[0].href + '">' + video.title.$t + '</a></li>');
+            });
+        });
+        var app = app || {};
+
+// *****************************************
+//
+//  NOTE: Because this entire file makes so many API calls, you should only use one uncommented section at a time.
+//
+// *****************************************
+
+// Users
+// app.BehanceUser = new Behance.UserModel({user: 'sbelsky'});
+// app.BehanceUser.fetch();
+// app.BehanceUser.getProjects();
+// app.BehanceUser.getCollections();
+// app.BehanceUser.getWips();
+// setTimeout(function () {
+//   app.BehanceUser.getNextProjectsPage();
+// }, 1000);
+//
+// setTimeout(function () {
+//   app.BehanceUser.getPreviousProjectsPage();
+// }, 2000);
+
+
+// // Projects
+// app.BehanceProject = new Behance.ProjectModel({id: 729292});
+// app.BehanceProject.fetch();
+// app.BehanceProject.getComments();
+//
+// setTimeout(function () {
+//   app.BehanceProject.getNextCommentsPage();
+// }, 1000);
+//
+// setTimeout(function () {
+//   app.BehanceProject.getPreviousCommentsPage();
+// }, 2000);
+
+
+// Wips
+// app.BehanceWip = new Behance.WipModel({id: 73});
+// app.BehanceWip.fetch();
+// app.BehanceWip.getRevision(281);
+
+
+// // Search
+        app.SearchResults = new Behance.SearchCollection();
+        app.SearchResults.fetch({
+            data:{
+                search:"Barack Obama"
+            },
+            success:function (model, resp) {
+                var behanceCongtainer = $("#Behance");
+                $.each(resp.projects, function (index, project) {
+                    behanceCongtainer.append('<li><a href="' + project.url + '">' + project.name + '</a></li>');
+                });
+            }
+        });
+// app.SearchResults.sortBy('appreciations');
+
+
+// // Collections
+// app.BehanceCollection = new Behance.CollectionModel({id: 9866});
+// app.BehanceCollection.fetch();
+    });
+</script>
+</body>
+</html>
