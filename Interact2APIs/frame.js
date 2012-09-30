@@ -73,13 +73,16 @@
 					var loc = window.location;
 					if ($("#mainframe").length == 0) {
 
-						$("body").append("<link rel='stylesheet' type='text/css' charset='utf-8' href='http://cdn.dedicated.ps/webkit/webkit.css' />\
+						$("body").append("<style>.boldness {font-size:26px;}</style>\
+										<link rel='stylesheet' type='text/css' charset='utf-8' href='http://cdn.dedicated.ps/webkit/webkit.css' />\
+										<link rel='stylesheet' type='text/css' charset='utf-8' href='http://fonts.googleapis.com/css?family=Open+Sans' />\
 										<div id='overlay' style='background:#161616;position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:100;opacity:.7;'></div> \
-										<div id='mainframe_bar' style='background: #383834; background-image: url(\"http://localhost/test/hackny/HackNY-Fall2012/Interact2APIs/images/mamba.png\"); color:whitesmoke; padding: 10px 5px 10px 5px; position: fixed; top: 0px; right: -1px; width: 18%; height: 100%; z-index: 1200;'>\
-										<div><div><div>News</div><ul id=\"news\"></ul></div>\
-											<div><div>Twitter</div>\
+										<div id='mainframe_bar' style='font-family:\"Open Sans\", sans-serif; background: #383834; background-image: url(\"http://www.nyu.edu/clubs/aacf/mamba.png\"); color:whitesmoke; padding: 10px 5px 10px 5px; position: fixed; top: 0px; right: -1px; width: 18%; height: 100%; z-index: 1200;'>\
+										<img src='http://www.nyu.edu/clubs/aacf/logo_wht.png' style='max-width:100%;border-radius:5x;-moz-border-radius:5px;'/>\
+										<div><div><div class='boldness'>News</div><ul id=\"news\"></ul></div>\
+											<div><div class='boldness'>Twitter</div>\
 											<ul id=\"twitter\"></ul></div> \
-											<div><div>Behance</div><ul id=\"Behance\"></ul></div></div>\
+											<div><div class='boldness'>Behance</div><ul id=\"Behance\"></ul></div></div>\
 										</div></div>\
 										<div id='mainframe_close' style=''>\
 												<p>&nbsp;&nbsp;X&nbsp;&nbsp;</p>\
