@@ -73,7 +73,7 @@
 					var loc = window.location;
 					if ($("#mainframe").length == 0) {
 
-						$("body").append("<style>.boldness {font-size:26px;}</style>\
+						$("body").append("<style>.boldness {font-size:26px;margin-bottom:5px;}</style>\
 										<link rel='stylesheet' type='text/css' charset='utf-8' href='http://cdn.dedicated.ps/webkit/webkit.css' />\
 										<link rel='stylesheet' type='text/css' charset='utf-8' href='http://fonts.googleapis.com/css?family=Open+Sans' />\
 										<div id='overlay' style='background:#161616;position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:100;opacity:.7;'></div> \
