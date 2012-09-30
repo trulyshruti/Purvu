@@ -56,13 +56,11 @@
                 $("body").append("\
 								<div id='overlay' style='background:#161616;position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:50;opacity:.7;'></div> \
                                 <div id='mainframe_bar' style='background: #fff; padding: 10px 5px 10px 5px; position: fixed; top: 0px; right: 0%; width: 18%; height: 100%; z-index: 999; box-shadow:-5px 0px 5px purple; -moz-box-shadow:-5px 2px 5px purple;'>\
-                                    <div id='mainframe_close' style=''>\
-                                        <p><a href=\"#\">Close</a></p>\
                                     </div><div><div><div>News</div><ul id=\"news\"></ul></div><div><div>Twitter</div>\
                                     <ul id=\"twitter\"></ul></div><div><div>Behance</div><ul id=\"Behance\"></ul></div></div></div>\
                                 </div>\
 								<div id='mainframe_close' style=''>\
-                                        <p><a href=\"#\">X</a></p>\
+                                        <p><a href=\"#\">CLOSE</a></p>\
                                     </div>\
                                 <div id='mainframe'>\
                                         <iframe src='" + loc + "' onload=\"$('#mainframe iframe').slideDown(500);\" name='main'>Enable iFrames.</iframe>\
