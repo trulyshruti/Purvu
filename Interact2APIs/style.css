@@ -17,6 +17,22 @@ div.test {
 	background-color: #fff;
 }
 
+#div. mainframe {}
+
+#div .mainframe-bar { background: #fff;  position: fixed; top: 0%; left: 80%; width: 20%; height: 100%; z-index: 999; border: 10px solid rgba(0,0,0,.5); }
+
+#div .mainframe-close { background: #fff; display: none; position: fixed; width: 50px; height: 20px; top: 0; left: 0; background-color: rgba(255,255,255,.25); cursor: pointer; z-index: 1000; }
+
+#div .mainframe-close .p { background: red; color: black; font: normal normal bold 20px/20px Helvetica, sans-serif; position: absolute; top: 0%; right: 0%;  text-align: center;  }
+
+#div .mainframe .iframe { background: #fff; display: none; position: fixed; top: 0%; left: 0%; width: 80%; height: 100%; z-index: 999; border: 10px solid rgba(0,0,0,.5);  }
+
+ul.news {}
+
+ul.videos {}
+
+ul.Behance {}
+
 /*
 .floatleft { float: left; }
 .floatright { float: right; }
