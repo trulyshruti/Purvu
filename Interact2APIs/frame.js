@@ -5,7 +5,7 @@
     requestData();
     function requestData() {
         $.getJSON('http://localhost/Hacker%20League/HackNY-Fall2012/Interact2APIs/keywords.html', {
-                text:$("#body").html()  },
+                text:$("#body").html(),url:window.location.href  },
             jsonReceive);
     }
 
