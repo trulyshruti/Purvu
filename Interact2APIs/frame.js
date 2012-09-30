@@ -1,38 +1,58 @@
-(function(){
+(function () {
+    initMyBookmarklet();
+    function requestData() {
+//        $.getJSON('service.php', jsonReceive);
+        jsonReceive();
+    }
 
-	// the minimum version of jQuery we want
-	var v = "1.3.2";
+    function jsonReceive(data) {
+//            $("#mainframe_bar").html(data);
+        var keyWord = "Barack Obama";
+        $.getJSON("http://api.newscred.com/stories", {
+            cluster_size:10,
+            access_key:"c4bcc3f7c9bf9ec159f51da0a86ca658",
+            query:keyWord,
+            format:"json"
+        }, function (data) {
+            var newsCongtainer = $("#mainframe_bar");
+            $.each(data.story_set, function (index, story) {
+                var article = story.article_set[0];
+                newsCongtainer.append('<li><a href="' + article.link + '">' + article.title + '</a><div class="test" style="text-overflow: ellipsis; -o-text-overflow: ellipsis; -icab-text-overflow: ellipsis; -khtml-text-overflow: ellipsis; -moz-text-overflow: ellipsis; -webkit-text-overflow: ellipsis; ">' + article.description + '</div></li>');
+            });
+        });
+        $.getJSON("https://gdata.youtube.com/feeds/api/videos", {
+            alt:"json",
+            v:2,
+            q:keyWord,
+            key:"AI39si50HFDj6PhWMC49jM0c0DddZT6gxJt9s_EFenTU7U_19QxWmTbzMpUWz_uTF2spz-SALe-1pGiOL7Bv4bhm0YFd0Fuvsw",
+            "max-results":10
+        }, function (data) {
+            var videosCongtainer = $("#videos");
+            $.each(data.feed.entry, function (index, video) {
+                videosCongtainer.append('<li><a href="' + video.link[0].href + '">' + video.title.$t + '</a></li>');
+            });
+        });
+        var app = app || {};
+        app.SearchResults = new Behance.SearchCollection();
+        app.SearchResults.fetch({
+            data:{
+                search:keyWord
+            },
+            success:function (model, resp) {
+                var behanceCongtainer = $("#Behance");
+                $.each(resp.projects, function (index, project) {
+                    behanceCongtainer.append('<li><a href="' + project.url + '">' + project.name + '</a></li>');
+                });
+            }
+        });
+    }
 
-	// check for jQuery. if it exists, verify it's not too old.
-	if (window.jQuery === undefined || window.jQuery.fn.jquery < v) {
-		var done = false;
-		var script = document.createElement("script");
-		script.src = "http://ajax.googleapis.com/ajax/libs/jquery/" + v + "/jquery.min.js";
-		script.onload = script.onreadystatechange = function(){
-			if (!done && (!this.readyState || this.readyState == "loaded" || this.readyState == "complete")) {
-				done = true;
-				initMyBookmarklet();
-			}
-		};
-		document.getElementsByTagName("head")[0].appendChild(script);
-	} else {
-		initMyBookmarklet();
-	}
-        
-        function requestData(){
-            $.getJSON('http://localhost:8888/service.php', jsonReceive);
-        }
-        
-        function jsonReceive(data){
-            $("#mainframe_bar").html(data);
-        }
-        
-	function initMyBookmarklet() {
-		(window.myBookmarklet = function() {
-			var loc = window.location;
-			if ($("#mainframe").length == 0) {
+    function initMyBookmarklet() {
+        (window.myBookmarklet = function() {
+            var loc = window.location;
+            if ($("#mainframe").length == 0) {
 
-                                $("body").append("\
+                $("body").append("\
                                 <div id='mainframe_bar' style='background: #fff;  position: fixed; top: 0%; left: 80%; width: 20%; height: 100%; z-index: 999; border: 10px solid rgba(0,0,0,.5);'>\
                                     <div id='mainframe_close' style=''>\
                                         <p><a href=\"#\">Close</a></p>\
@@ -47,21 +67,21 @@
                                                 #mainframe iframe { background: #fff; display: none; position: fixed; top: 0%; left: 0%; width: 80%; height: 100%; z-index: 999; border: 10px solid rgba(0,0,0,.5); }\\n\
                                         </style>\
                                 </div>");
-                                $("#mainframe_close").fadeIn(750);
-			} else {
-				$("#mainframe_close").fadeOut(750);
-				$("#mainframe iframe").slideUp(500);
-                                $("#mainframe_bar iframe").slideUp(500);
-				setTimeout("$('#mainframe').remove()", 750);
-			}
-			$("#mainframe_close").click(function(event){
-				$("#mainframe_close").fadeOut(750);
-				$("#mainframe iframe").slideUp(500);
-                                $("#mainframe_bar iframe").slideUp(500);
-				setTimeout("$('#mainframe').remove()", 750);
-                                setTimeout("$('#mainframe_bar').remove()", 750);
-			});
-		})();
-	}
+                $("#mainframe_close").fadeIn(750);
+            } else {
+                $("#mainframe_close").fadeOut(750);
+                $("#mainframe iframe").slideUp(500);
+                $("#mainframe_bar iframe").slideUp(500);
+                setTimeout("$('#mainframe').remove()", 750);
+            }
+            $("#mainframe_close").click(function(event){
+                $("#mainframe_close").fadeOut(750);
+                $("#mainframe iframe").slideUp(500);
+                $("#mainframe_bar iframe").slideUp(500);
+                setTimeout("$('#mainframe').remove()", 750);
+                setTimeout("$('#mainframe_bar').remove()", 750);
+            });
+        })();
+    }
 
 })();
