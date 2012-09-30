@@ -1,20 +1,24 @@
 (function () {
     initMyBookmarklet();
+    requestData();
     function requestData() {
-//        $.getJSON('service.php', jsonReceive);
-        jsonReceive();
+        $.getJSON('http://localhost/Hacker%20League/HackNY-Fall2012/Interact2APIs/keywords.html', {
+                text:$("#body").html()  },
+            jsonReceive);
     }
 
     function jsonReceive(data) {
+        console.log(data);
 //            $("#mainframe_bar").html(data);
-        var keyWord = "Barack Obama";
+        var keyWord = data.keywords.join(" ");
+//        var keyWord = data.keywords[0];
         $.getJSON("http://api.newscred.com/stories", {
             cluster_size:10,
             access_key:"c4bcc3f7c9bf9ec159f51da0a86ca658",
             query:keyWord,
             format:"json"
         }, function (data) {
-            var newsCongtainer = $("#mainframe_bar");
+            var newsCongtainer = $("#news");
             $.each(data.story_set, function (index, story) {
                 var article = story.article_set[0];
                 newsCongtainer.append('<li><a href="' + article.link + '">' + article.title + '</a><div class="test" style="text-overflow: ellipsis; -o-text-overflow: ellipsis; -icab-text-overflow: ellipsis; -khtml-text-overflow: ellipsis; -moz-text-overflow: ellipsis; -webkit-text-overflow: ellipsis; ">' + article.description + '</div></li>');
@@ -48,7 +52,7 @@
     }
 
     function initMyBookmarklet() {
-        (window.myBookmarklet = function() {
+        (window.myBookmarklet = function () {
             var loc = window.location;
             if ($("#mainframe").length == 0) {
 
@@ -56,11 +60,11 @@
                                 <div id='mainframe_bar' style='background: #fff;  position: fixed; top: 0%; left: 80%; width: 20%; height: 100%; z-index: 999; border: 10px solid rgba(0,0,0,.5);'>\
                                     <div id='mainframe_close' style=''>\
                                         <p><a href=\"#\">Close</a></p>\
-                                    </div>\
-                                </div>\
+                                    </div><div><div><div>News</div><ul id=\"news\"></ul></div><div><div>Videos</div>\
+                                    <ul id=\"videos\"></ul></div><div><div>Behance</div><ul id=\"Behance\"></ul></div></div></div>\
                                 </div>\
                                 <div id='mainframe'>\
-                                        <iframe src='"+loc+"' onload=\"$('#mainframe iframe').slideDown(500);\">Enable iFrames.</iframe>\
+                                        <iframe src='" + loc + "' onload=\"$('#mainframe iframe').slideDown(500);\">Enable iFrames.</iframe>\
                                         <style type='text/css'>\
                                                 #mainframe_close { background: #fff; display: none; position: fixed; width: 50px; height: 20px; top: 0; left: 0; background-color: rgba(255,255,255,.25); cursor: pointer; z-index: 1000; }\
                                                 #mainframe_close p { background: red; color: black; font: normal normal bold 20px/20px Helvetica, sans-serif; position: absolute; top: 0%; right: 0%;  text-align: center; }\
@@ -74,7 +78,7 @@
                 $("#mainframe_bar iframe").slideUp(500);
                 setTimeout("$('#mainframe').remove()", 750);
             }
-            $("#mainframe_close").click(function(event){
+            $("#mainframe_close").click(function (event) {
                 $("#mainframe_close").fadeOut(750);
                 $("#mainframe iframe").slideUp(500);
                 $("#mainframe_bar iframe").slideUp(500);
