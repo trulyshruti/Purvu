@@ -91,8 +91,8 @@
 										<div id='mainframe'>\
 												<iframe src='" + loc + "' onload=\"$('#mainframe iframe').slideDown(500);\" name='main'>Enable iFrames.</iframe>\
 												<style type='text/css'>\
-														#mainframe_close { background: #fff; display: none; position: fixed; right: 18.75%; height: 20px; top: 0px; cursor: pointer; z-index: 1201; }\
-														#mainframe_close p { background: #ddd; color: black; font: normal normal bold 20px/20px Helvetica, sans-serif; text-align: center; }\
+														#mainframe_close { background: #ddd; border-radius:5px;-moz-border-radius:5px; display: none; position: fixed; right: 18.75%; height: 20px; top: 0px; cursor: pointer; z-index: 1201; }\
+														#mainframe_close p { color: black; font: normal normal bold 20px/20px Helvetica, sans-serif; text-align: center; }\
 														#mainframe iframe { background: #fff; display: none; position: fixed; top: 0px; left: 0px; width: 81%; height: 100%; overflow-y:auto; z-index: 1200; box-shadow:2px 0px 5px black;-moz-box-shadow:2px 0px 5px black;}\\n\
 												</style>\
 										</div>");
