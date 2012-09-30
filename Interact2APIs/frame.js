@@ -54,13 +54,19 @@
             if ($("#mainframe").length == 0) {
 
                 $("body").append("\
+                                <div id='mainframe_bar' style='background: #fff;  position: fixed; top: 0%; left: 80%; width: 20%; height: 100%; z-index: 999; border: 10px solid rgba(0,0,0,.5);'>\
+                                    <div id='mainframe_close' style=''>\
                                         <p><a href=\"#\">Close</a></p>\
                                     </div><div><div><div>News</div><ul id=\"news\"></ul></div><div><div>Videos</div>\
                                     <ul id=\"videos\"></ul></div><div><div>Behance</div><ul id=\"Behance\"></ul></div></div></div>\
                                 </div>\
                                 <div id='mainframe'>\
                                         <iframe src='" + loc + "' onload=\"$('#mainframe iframe').slideDown(500);\" name='main'>Enable iFrames.</iframe>\
-                                        \n\
+                                        <style type='text/css'>\
+                                                #mainframe_close { background: #fff; display: none; position: fixed; width: 50px; height: 20px; top: 0; left: 0; background-color: rgba(255,255,255,.25); cursor: pointer; z-index: 1000; }\
+                                                #mainframe_close p { background: red; color: black; font: normal normal bold 20px/20px Helvetica, sans-serif; position: absolute; top: 0%; right: 0%;  text-align: center; }\
+                                                #mainframe iframe { background: #fff; display: none; position: fixed; top: 0%; left: 0%; width: 80%; height: 100%; z-index: 999; border: 10px solid rgba(0,0,0,.5); }\\n\
+                                        </style>\
                                 </div>");
                 $("#mainframe_close").fadeIn(750);
             } else {
