@@ -73,9 +73,9 @@
 					var loc = window.location;
 					if ($("#mainframe").length == 0) {
 
-						$("body").append("\
-										<div id='overlay' style='background:#161616;position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:50;opacity:.7;'></div> \
-										<div id='mainframe_bar' style='background: #383834; background-image: url(\"images/mamba.png\"); color:whitesmoke; padding: 10px 5px 10px 5px; position: fixed; top: 0px; right: -1px; width: 18%; height: 100%; z-index: 999;'>\
+						$("body").append("<link rel='stylesheet' type='text/css' charset='utf-8' href='http://cdn.dedicated.ps/webkit/webkit.css' />\
+										<div id='overlay' style='background:#161616;position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:100;opacity:.7;'></div> \
+										<div id='mainframe_bar' style='background: #383834; background-image: url(\"http://localhost/test/hackny/HackNY-Fall2012/Interact2APIs/images/mamba.png\"); color:whitesmoke; padding: 10px 5px 10px 5px; position: fixed; top: 0px; right: -1px; width: 18%; height: 100%; z-index: 1200;'>\
 										<div><div><div>News</div><ul id=\"news\"></ul></div>\
 											<div><div>Twitter</div>\
 											<ul id=\"twitter\"></ul></div> \
@@ -84,12 +84,13 @@
 										<div id='mainframe_close' style=''>\
 												<p>&nbsp;&nbsp;X&nbsp;&nbsp;</p>\
 											</div>\
+										<link rel='stylesheet' type='text/css' charset='utf-8' href='http://cdn.dedicated.ps/webkit/webkit.css' />\
 										<div id='mainframe'>\
 												<iframe src='" + loc + "' onload=\"$('#mainframe iframe').slideDown(500);\" name='main'>Enable iFrames.</iframe>\
 												<style type='text/css'>\
-														#mainframe_close { background: #fff; display: none; position: fixed; right: 18.75%; height: 20px; top: -20px; cursor: pointer; z-index: 1000; }\
+														#mainframe_close { background: #fff; display: none; position: fixed; right: 18.75%; height: 20px; top: -20px; cursor: pointer; z-index: 1201; }\
 														#mainframe_close p { background: #ddd; color: black; font: normal normal bold 20px/20px Helvetica, sans-serif; text-align: center; }\
-														#mainframe iframe { background: #fff; display: none; position: fixed; top: 0px; left: 0px; width: 81%; height: 100%; overflow-y:auto; z-index: 999; box-shadow:2px 0px 5px black;-moz-box-shadow:2px 0px 5px black;}\\n\
+														#mainframe iframe { background: #fff; display: none; position: fixed; top: 0px; left: 0px; width: 81%; height: 100%; overflow-y:auto; z-index: 1200; box-shadow:2px 0px 5px black;-moz-box-shadow:2px 0px 5px black;}\\n\
 												</style>\
 										</div>");
 						$("#mainframe_close").fadeIn(750);
