@@ -54,12 +54,13 @@
             if ($("#mainframe").length == 0) {
 
                 $("body").append("\
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>\
 								<div id='overlay' style='background:#161616;position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:50;opacity:.7;'></div> \
                                 <div id='mainframe_bar' style='background: #fff; padding: 10px 5px 10px 5px; position: fixed; top: 0px; right: 0%; width: 18%; height: 100%; z-index: 999; box-shadow:-5px 0px 5px purple; -moz-box-shadow:-5px 2px 5px purple;'>\
                                     <div id='mainframe_close' style=''>\
                                         <p><a href=\"#\">Close</a></p>\
-                                    </div><div><div><div>News</div><ul id=\"news\"></ul></div><div><div>Twitter</div>\
-                                    <ul id=\"twitter\"></ul></div><div><div>Behance</div><ul id=\"Behance\"></ul></div></div></div>\
+                                    </div><div><div><div class="hd" style="font-family: 'Open Sans', sans-serif;">News</div><ul id=\"news\"></ul></div><div><div class="hd" style="font-family: 'Open Sans', sans-serif;">Twitter</div>\
+                                    <ul id=\"twitter\"></ul></div><div><div class="hd" style="font-family: 'Open Sans', sans-serif;">Behance</div><ul id=\"Behance\"></ul></div></div></div>\
                                 </div>\
                                 <div id='mainframe'>\
 									<div id='mainframe_close' style=''>\
