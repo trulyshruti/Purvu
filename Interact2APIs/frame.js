@@ -57,8 +57,8 @@
             if ($("#mainframe").length == 0) {
 
                 $("body").append("\
-								<div id='overlay' style='background:#aaa;position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:50;opacity:.5;'></div> \
-                                <div id='mainframe_bar' style='background: #fff;  position: fixed; top: 0%; left: 80%; width: 20%; height: 100%; z-index: 999; border: 10px solid rgba(0,0,0,.5);'>\
+								<div id='overlay' style='background:#161616;position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:50;opacity:.7;'></div> \
+                                <div id='mainframe_bar' style='background: #fff; padding: 5px 5px 5px 5px; position: fixed; top: 5px; left: 81%; width: 18%; height: 98%; z-index: 999; box-shadow:2px 2px 5px #D39191'>\
                                     <div id='mainframe_close' style=''>\
                                         <p><a href=\"#\">Close</a></p>\
                                     </div><div><div><div>News</div><ul id=\"news\"></ul></div><div><div>Videos</div>\
@@ -69,7 +69,7 @@
                                         <style type='text/css'>\
                                                 #mainframe_close { background: #fff; display: none; position: fixed; width: 50px; height: 20px; top: 0; left: 0; background-color: rgba(255,255,255,.25); cursor: pointer; z-index: 1000; }\
                                                 #mainframe_close p { background: red; color: black; font: normal normal bold 20px/20px Helvetica, sans-serif; position: absolute; top: 0%; right: 0%;  text-align: center; }\
-                                                #mainframe iframe { background: #fff; display: none; position: fixed; top: 0%; left: 0%; width: 80%; height: 100%; z-index: 999; border: 10px solid rgba(0,0,0,.5); }\\n\
+                                                #mainframe iframe { background: #fff; display: none; position: fixed; top: 0%; left: 0%; width: 80%; height: 100%; z-index: 999;}\\n\
                                         </style>\
                                 </div>");
                 $("#mainframe_close").fadeIn(750);
