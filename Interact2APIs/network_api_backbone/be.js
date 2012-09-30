@@ -1,7 +1,7 @@
 Behance = {
   
   api_url : 'http://www.behance.net/v2/',
-  api_key : '12345678901234567890123456789012'
+  api_key : 'yliF6hI17LTXdb5PHMfsUX3H89x98LY0'
   
 };
 

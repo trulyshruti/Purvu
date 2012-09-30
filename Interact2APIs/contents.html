@@ -50,10 +50,11 @@
 <script type="text/javascript" src="network_api_backbone/be/search.js"></script>
 <script type="text/javascript">
     $(function () {
+        var keyWord = "Barack Obama";
         $.getJSON("http://api.newscred.com/stories", {
             cluster_size:10,
             access_key:"c4bcc3f7c9bf9ec159f51da0a86ca658",
-            query:"Barack Obama",
+            query:keyWord,
             format:"json"
         }, function (data) {
             var newsCongtainer = $("#news");
@@ -65,7 +66,7 @@
         $.getJSON("https://gdata.youtube.com/feeds/api/videos", {
             alt:"json",
             v:2,
-            q:"Barack Obama",
+            q:keyWord,
             key:"AI39si50HFDj6PhWMC49jM0c0DddZT6gxJt9s_EFenTU7U_19QxWmTbzMpUWz_uTF2spz-SALe-1pGiOL7Bv4bhm0YFd0Fuvsw",
             "max-results":10
         }, function (data) {
@@ -75,53 +76,11 @@
             });
         });
         var app = app || {};
-
-// *****************************************
-//
-//  NOTE: Because this entire file makes so many API calls, you should only use one uncommented section at a time.
-//
-// *****************************************
-
-// Users
-// app.BehanceUser = new Behance.UserModel({user: 'sbelsky'});
-// app.BehanceUser.fetch();
-// app.BehanceUser.getProjects();
-// app.BehanceUser.getCollections();
-// app.BehanceUser.getWips();
-// setTimeout(function () {
-//   app.BehanceUser.getNextProjectsPage();
-// }, 1000);
-//
-// setTimeout(function () {
-//   app.BehanceUser.getPreviousProjectsPage();
-// }, 2000);
-
-
-// // Projects
-// app.BehanceProject = new Behance.ProjectModel({id: 729292});
-// app.BehanceProject.fetch();
-// app.BehanceProject.getComments();
-//
-// setTimeout(function () {
-//   app.BehanceProject.getNextCommentsPage();
-// }, 1000);
-//
-// setTimeout(function () {
-//   app.BehanceProject.getPreviousCommentsPage();
-// }, 2000);
-
-
-// Wips
-// app.BehanceWip = new Behance.WipModel({id: 73});
-// app.BehanceWip.fetch();
-// app.BehanceWip.getRevision(281);
-
-
 // // Search
         app.SearchResults = new Behance.SearchCollection();
         app.SearchResults.fetch({
             data:{
-                search:"Barack Obama"
+                search:keyWord
             },
             success:function (model, resp) {
                 var behanceCongtainer = $("#Behance");
@@ -130,12 +89,6 @@
                 });
             }
         });
-// app.SearchResults.sortBy('appreciations');
-
-
-// // Collections
-// app.BehanceCollection = new Behance.CollectionModel({id: 9866});
-// app.BehanceCollection.fetch();
     });
 </script>
 </body>
