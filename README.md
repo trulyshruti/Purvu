@@ -4,4 +4,4 @@ Purvu is a social web bookmarklet. To use it, just navigate to an article page, 
 
 The code for Purvu is hosted on your own computer, so you'll need a web server running to use it. Simply download the files, move them to the localhost directory, then drag the bookmarklet link into your browser bookmarks bar. That's it!
 
-Purvu was created at HackNY in Fall 2012 as a collaborative effort by a team of seven students: Shruti Kulkarni and Julian Bongiorno, from Columbia University; Denis Antipov, Charlie He, and Cathy Lee from NYU; and Jiankai Dang and Darshan Pandit, from NYU-Poly.
+Purvu was created as a team project at HackNY in Fall 2012.
